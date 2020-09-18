@@ -26,7 +26,7 @@ public class UnionFind {
     }
 
     public void union(int u, int v) {
-        assert(u >= 0 && v >= 0);
+        assert (u >= 0 && v >= 0);
 
         int parentOfU = find(u);
         int parentOfV = find(v);

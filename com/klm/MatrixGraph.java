@@ -14,7 +14,7 @@ public class MatrixGraph {
         this.isDirected = isDirected;
         this.adjMatrix = new int[vertexCount][vertexCount];
         if (isWeighted) {
-            for (int i = 0; i < vertexCount; i++){
+            for (int i = 0; i < vertexCount; i++) {
                 for (int j = 0; j < vertexCount; j++) {
                     if (i == j) {
                         adjMatrix[i][j] = 0;
@@ -24,7 +24,7 @@ public class MatrixGraph {
                 }
             }
         } else {
-            for (int i = 0; i < vertexCount; i++){
+            for (int i = 0; i < vertexCount; i++) {
                 for (int j = 0; j < vertexCount; j++) {
                     adjMatrix[i][j] = 0;
                 }
@@ -81,7 +81,7 @@ public class MatrixGraph {
     }
 
     public void printGraph() {
-        for (int i = 0; i < vertexCount; i++){
+        for (int i = 0; i < vertexCount; i++) {
             System.out.println("Vertex " + i + " is adjacent to: ");
             for (int j = 0; j < vertexCount; j++) {
                 int currentEdgeWeight = adjMatrix[i][j];

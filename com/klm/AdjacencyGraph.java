@@ -193,7 +193,8 @@ public class AdjacencyGraph {
         } else if (vertexColours[neighbourVertex].equals("UNCOLOURED")) {
             String complement = getComplementColour(currentVertex);
             vertexColours[neighbourVertex] = complement;
-        };
+        }
+        ;
     }
 
     private String getComplementColour(int currVertex) {
@@ -210,7 +211,7 @@ public class AdjacencyGraph {
 
     // Can be improved by converting the distances array to a priority queue (of Edges, ordered by weight)
     public int findMSTPrim() {
-        assert(!isDirected);
+        assert (!isDirected);
         boolean[] vertexIsInTree = new boolean[vertexCount];
         int[] distances = new int[vertexCount];
         int[] parents = new int[vertexCount];
@@ -258,7 +259,7 @@ public class AdjacencyGraph {
     }
 
     public int findMSTKruskal() {
-        assert(!isDirected);
+        assert (!isDirected);
 
         int minimumWeight = 0;
         ArrayList<Edge> allEdges = getAllEdges();
@@ -294,7 +295,7 @@ public class AdjacencyGraph {
     }
 
     private void reconstructMST(int[] parents) {
-        for (int i = vertexCount-1; i >= 0; i--) {
+        for (int i = vertexCount - 1; i >= 0; i--) {
             System.out.println("Parent of " + i + " is: " + parents[i]);
         }
     }
@@ -337,7 +338,7 @@ public class AdjacencyGraph {
                 }
             }
         }
-        return distances[vertexCount-1];
+        return distances[vertexCount - 1];
     }
 }
 

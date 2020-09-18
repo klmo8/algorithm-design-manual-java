@@ -38,20 +38,20 @@ public class MinHeap {
     }
 
     private int getParentIndex(int index) {
-        return index/2;
+        return index / 2;
     }
 
     private int getLeftChildIndex(int index) {
-        if (2*index <= size) {
-            return 2*index;
+        if (2 * index <= size) {
+            return 2 * index;
         } else {
             return -1;
         }
     }
 
     private int getRightChildIndex(int index) {
-        if ((2*index + 1) <= size) {
-            return 2*index + 1;
+        if ((2 * index + 1) <= size) {
+            return 2 * index + 1;
         } else {
             return -1;
         }
@@ -100,7 +100,7 @@ public class MinHeap {
             }
         } else if (hasRightChild(currentIndex)) {
             smallerChildIndex = rightChildIndex;
-        } else if (hasLeftChild(currentIndex)){
+        } else if (hasLeftChild(currentIndex)) {
             smallerChildIndex = leftChildIndex;
         } else {
             return;

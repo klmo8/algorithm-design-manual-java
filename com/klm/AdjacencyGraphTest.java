@@ -16,8 +16,8 @@ class AdjacencyGraphTest {
     @BeforeEach
     void setUp() {
         // Toggle isDirected to apply tests for both directed and undirected graphs
-        connectedGraph = new AdjacencyGraph(4,true);
-        disconnectedGraph = new AdjacencyGraph(6,true);
+        connectedGraph = new AdjacencyGraph(4, true);
+        disconnectedGraph = new AdjacencyGraph(6, true);
         disconnectedComplicatedGraph = new AdjacencyGraph(6, true);
         graphWithMST = new AdjacencyGraph(5, false);
         shortestPathsGraph = new AdjacencyGraph(5, false);
@@ -26,29 +26,29 @@ class AdjacencyGraphTest {
     @org.junit.jupiter.api.Test
     void hasTwoColouringIdenitifiesBipartiteConnectedComponents() {
         connectedGraph.addEdge(0, 1);
-        connectedGraph.addEdge( 1, 2);
-        connectedGraph.addEdge( 2, 3);
-        connectedGraph.addEdge( 3, 0);
+        connectedGraph.addEdge(1, 2);
+        connectedGraph.addEdge(2, 3);
+        connectedGraph.addEdge(3, 0);
 
-        assert(connectedGraph.hasTwoColouring());
+        assert (connectedGraph.hasTwoColouring());
     }
 
     @org.junit.jupiter.api.Test
     void hasTwoColouringIdenitifiesBipartiteDisconnectedComponents() {
         disconnectedGraph.addEdge(0, 1);
-        disconnectedGraph.addEdge( 1, 2);
-        disconnectedGraph.addEdge( 2, 3);
-        disconnectedGraph.addEdge( 3, 0);
+        disconnectedGraph.addEdge(1, 2);
+        disconnectedGraph.addEdge(2, 3);
+        disconnectedGraph.addEdge(3, 0);
 
-        assert(disconnectedGraph.hasTwoColouring());
+        assert (disconnectedGraph.hasTwoColouring());
     }
 
     @org.junit.jupiter.api.Test
     void hasTwoColouringIdenitifiesNonBipartiteConnectedComponents() {
         connectedGraph.addEdge(0, 1);
-        connectedGraph.addEdge( 1, 2);
-        connectedGraph.addEdge( 2, 0);
-        connectedGraph.addEdge( 2, 1);
+        connectedGraph.addEdge(1, 2);
+        connectedGraph.addEdge(2, 0);
+        connectedGraph.addEdge(2, 1);
 
         assertFalse(connectedGraph.hasTwoColouring());
     }
@@ -56,8 +56,8 @@ class AdjacencyGraphTest {
     @org.junit.jupiter.api.Test
     void hasTwoColouringIdenitifiesNonBipartiteDisconnectedComponents() {
         disconnectedGraph.addEdge(0, 1);
-        disconnectedGraph.addEdge( 1, 2);
-        disconnectedGraph.addEdge( 2, 0);
+        disconnectedGraph.addEdge(1, 2);
+        disconnectedGraph.addEdge(2, 0);
 
         assertFalse(disconnectedGraph.hasTwoColouring());
     }
@@ -65,9 +65,9 @@ class AdjacencyGraphTest {
     @Test
     void bfsRunsWithoutErrorsOnDisconnectedGraph() {
         disconnectedGraph.addEdge(0, 1);
-        disconnectedGraph.addEdge( 1, 2);
-        disconnectedGraph.addEdge( 2, 3);
-        disconnectedGraph.addEdge( 3, 0);
+        disconnectedGraph.addEdge(1, 2);
+        disconnectedGraph.addEdge(2, 3);
+        disconnectedGraph.addEdge(3, 0);
 
         disconnectedGraph.breadthFirstSearchForDisconnectedGraphs();
     }
@@ -75,9 +75,9 @@ class AdjacencyGraphTest {
     @Test
     void bfsRunsWithoutErrorsOnConnectedGraph() {
         disconnectedGraph.addEdge(0, 1);
-        disconnectedGraph.addEdge( 1, 2);
-        disconnectedGraph.addEdge( 2, 3);
-        disconnectedGraph.addEdge( 3, 0);
+        disconnectedGraph.addEdge(1, 2);
+        disconnectedGraph.addEdge(2, 3);
+        disconnectedGraph.addEdge(3, 0);
 
         disconnectedGraph.breadthFirstSearch(0);
     }
@@ -85,9 +85,9 @@ class AdjacencyGraphTest {
     @Test
     void dfsRunsWithoutErrorsOnDisconnectedGraph() {
         disconnectedGraph.addEdge(0, 1);
-        disconnectedGraph.addEdge( 1, 2);
-        disconnectedGraph.addEdge( 2, 3);
-        disconnectedGraph.addEdge( 3, 0);
+        disconnectedGraph.addEdge(1, 2);
+        disconnectedGraph.addEdge(2, 3);
+        disconnectedGraph.addEdge(3, 0);
 
         disconnectedGraph.depthFirstSearchForDisconnectedGraphs();
     }
@@ -95,9 +95,9 @@ class AdjacencyGraphTest {
     @Test
     void dfsRunsWithoutErrorsOnConnectedGraph() {
         disconnectedGraph.addEdge(0, 1);
-        disconnectedGraph.addEdge( 1, 2);
-        disconnectedGraph.addEdge( 2, 3);
-        disconnectedGraph.addEdge( 3, 0);
+        disconnectedGraph.addEdge(1, 2);
+        disconnectedGraph.addEdge(2, 3);
+        disconnectedGraph.addEdge(3, 0);
 
         disconnectedGraph.depthFirstSearch(0);
     }
@@ -105,12 +105,12 @@ class AdjacencyGraphTest {
     @Test
     void dfsRunsWithoutErrorsOnComplicatedDisconnectedGraph() {
         disconnectedComplicatedGraph.addEdge(0, 1);
-        disconnectedComplicatedGraph.addEdge( 0, 2);
-        disconnectedComplicatedGraph.addEdge( 1, 2);
-        disconnectedComplicatedGraph.addEdge( 2, 5);
-        disconnectedComplicatedGraph.addEdge( 3, 2);
-        disconnectedComplicatedGraph.addEdge( 4, 5);
-        disconnectedComplicatedGraph.addEdge( 5, 4);
+        disconnectedComplicatedGraph.addEdge(0, 2);
+        disconnectedComplicatedGraph.addEdge(1, 2);
+        disconnectedComplicatedGraph.addEdge(2, 5);
+        disconnectedComplicatedGraph.addEdge(3, 2);
+        disconnectedComplicatedGraph.addEdge(4, 5);
+        disconnectedComplicatedGraph.addEdge(5, 4);
 
         disconnectedComplicatedGraph.depthFirstSearchForDisconnectedGraphs();
     }
@@ -118,12 +118,12 @@ class AdjacencyGraphTest {
     @Test
     void bfsRunsWithoutErrorsOnComplicatedDisconnectedGraph() {
         disconnectedComplicatedGraph.addEdge(0, 1);
-        disconnectedComplicatedGraph.addEdge( 0, 2);
-        disconnectedComplicatedGraph.addEdge( 1, 2);
-        disconnectedComplicatedGraph.addEdge( 2, 5);
-        disconnectedComplicatedGraph.addEdge( 3, 2);
-        disconnectedComplicatedGraph.addEdge( 4, 5);
-        disconnectedComplicatedGraph.addEdge( 5, 4);
+        disconnectedComplicatedGraph.addEdge(0, 2);
+        disconnectedComplicatedGraph.addEdge(1, 2);
+        disconnectedComplicatedGraph.addEdge(2, 5);
+        disconnectedComplicatedGraph.addEdge(3, 2);
+        disconnectedComplicatedGraph.addEdge(4, 5);
+        disconnectedComplicatedGraph.addEdge(5, 4);
 
         disconnectedComplicatedGraph.breadthFirstSearchForDisconnectedGraphs();
     }

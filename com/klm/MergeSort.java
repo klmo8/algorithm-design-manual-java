@@ -9,7 +9,7 @@ public class MergeSort {
         if (left < right) {
             int mid = (left + right) / 2;
             mergeSort(left, mid, arr);
-            mergeSort(mid+1, right, arr);
+            mergeSort(mid + 1, right, arr);
             merge(left, mid, right, arr);
         }
     }
@@ -17,7 +17,8 @@ public class MergeSort {
     public static void merge(int left, int mid, int right, ArrayList<Integer> arr) {
         ArrayList<Integer> leftArr = new ArrayList<>();
         ArrayList<Integer> rightArr = new ArrayList<>();
-        int leftPtr = left; int rightPtr = mid+1;
+        int leftPtr = left;
+        int rightPtr = mid + 1;
 
         while (leftPtr <= mid) {
             leftArr.add(arr.get(leftPtr));
@@ -28,7 +29,9 @@ public class MergeSort {
             rightPtr++;
         }
 
-        int i = 0; int j = 0; int k = left;
+        int i = 0;
+        int j = 0;
+        int k = left;
         while (i < leftArr.size() && j < rightArr.size()) {
             if (leftArr.get(i) < rightArr.get(j)) {
                 arr.set(k, leftArr.get(i));
@@ -42,11 +45,13 @@ public class MergeSort {
 
         while (i < leftArr.size()) {
             arr.set(k, leftArr.get(i));
-            i++; k++;
+            i++;
+            k++;
         }
         while (j < rightArr.size()) {
             arr.set(k, rightArr.get(j));
-            j++; k++;
+            j++;
+            k++;
         }
     }
 }

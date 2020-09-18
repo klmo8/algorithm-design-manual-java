@@ -45,20 +45,20 @@ class MinHeapTest {
 
     @Test
     void extractMinRepeatedlyReturnsMinimum() throws IllegalStateException {
-            int min = minHeap.extractMin();
-            assertEquals(0, min);
-            min = minHeap.extractMin();
-            assertEquals(1, min);
-            min = minHeap.extractMin();
-            assertEquals(4, min);
-            min = minHeap.extractMin();
-            assertEquals(5, min);
-            min = minHeap.extractMin();
-            assertEquals(7, min);
-            min = minHeap.extractMin();
-            assertEquals(8, min);
-            min = minHeap.extractMin();
-            assertEquals(9, min);
+        int min = minHeap.extractMin();
+        assertEquals(0, min);
+        min = minHeap.extractMin();
+        assertEquals(1, min);
+        min = minHeap.extractMin();
+        assertEquals(4, min);
+        min = minHeap.extractMin();
+        assertEquals(5, min);
+        min = minHeap.extractMin();
+        assertEquals(7, min);
+        min = minHeap.extractMin();
+        assertEquals(8, min);
+        min = minHeap.extractMin();
+        assertEquals(9, min);
     }
 
     @Test

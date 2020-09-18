@@ -23,7 +23,7 @@ class MatrixGraphTest {
     }
 
     @Test
-      public void allPairsReturnsShortestPathsUndirected() {
+    public void allPairsReturnsShortestPathsUndirected() {
         int vertexCount = shortestPathsGraphUndirected.getVertexCount();
         int[][] expected = new int[vertexCount][vertexCount];
         expected[0][0] = 0;

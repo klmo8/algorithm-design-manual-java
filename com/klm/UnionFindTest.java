@@ -41,7 +41,7 @@ class UnionFindTest {
 
     @Test
     void sameComponentReturnsFalseForDifferentComponent() {
-        assertFalse(unionFind.isSameComponent(0,1));
+        assertFalse(unionFind.isSameComponent(0, 1));
     }
 
     @Test
@@ -76,7 +76,7 @@ class UnionFindTest {
         int initalComponentSizeOf1 = unionFind.getSizeOfComponent(1);
         int initialParentOf0 = unionFind.find(0);
         int initialParentOf1 = unionFind.find(1);
-        unionFind.union(0,0);
+        unionFind.union(0, 0);
         unionFind.union(1, 1);
         int afterUnionComponentSizeOf0 = unionFind.getSizeOfComponent(0);
         int afterUnionComponentSizeOf1 = unionFind.getSizeOfComponent(1);
@@ -94,13 +94,13 @@ class UnionFindTest {
         int initalComponentSizeOf1 = unionFind.getSizeOfComponent(1);
         int initialParentOf0 = unionFind.find(0);
         int initialParentOf1 = unionFind.find(1);
-        unionFind.union(0,1);
+        unionFind.union(0, 1);
         int afterUnionComponentSizeOf0 = unionFind.getSizeOfComponent(0);
         int afterUnionComponentSizeOf1 = unionFind.getSizeOfComponent(1);
         int afterUnionParentOf0 = unionFind.find(0);
         int afterUnionParentOf1 = unionFind.find(1);
-        assertEquals(initalComponentSizeOf0+1, afterUnionComponentSizeOf0);
-        assertEquals(initalComponentSizeOf1+1, afterUnionComponentSizeOf1);
+        assertEquals(initalComponentSizeOf0 + 1, afterUnionComponentSizeOf0);
+        assertEquals(initalComponentSizeOf1 + 1, afterUnionComponentSizeOf1);
         assertEquals(initialParentOf0, afterUnionParentOf0);
         assertEquals(0, afterUnionParentOf1);
     }
@@ -110,7 +110,7 @@ class UnionFindTest {
         int initialComponentCount = unionFind.getTotalElements();
         unionFind.union(0, 4);
         unionFind.union(0, 3);
-        unionFind.union(0,2);
+        unionFind.union(0, 2);
         unionFind.union(0, 1);
         int afterUnionComponentCount = unionFind.getTotalElements();
         assertEquals(5, initialComponentCount);
