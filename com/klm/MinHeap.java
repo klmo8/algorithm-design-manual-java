@@ -3,32 +3,36 @@ package com.klm;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MinHeap {
-    private List<Integer> heap = new ArrayList<>();
+// We don't want it to _implement_ comparable
+// This would imply that we want to compare two comparable objects
+// But what we really want is to compare the elements of the heap
+// So we extend Comparable, which allows us to use the parent classes compareTo method
+public class MinHeap<E extends Comparable<E>> {
+    private List<E> heap = new ArrayList<>();
     private int size = 0;
 
-    public MinHeap(List<Integer> data) {
-        heap.add(-1);
+    public MinHeap(List<E> data) {
+        heap.add(null);
         heapify(data);
     }
 
     public MinHeap() {
-        heap.add(-1);
+        heap.add(null);
     }
 
-    private void heapify(List<Integer> data) {
-        for (Integer element : data) {
+    private void heapify(List<E> data) {
+        for (E element : data) {
             addToHeap(element);
             bubbleUp();
         }
     }
 
-    public int extractMin() throws IllegalStateException {
+    public E extractMin() throws IllegalStateException {
         if (getSize() == 0) {
             throw new IllegalStateException("Error: cannot extract min from empty stack");
         }
-        int lastElement = heap.get(size);
-        int minElement = heap.get(1);
+        E lastElement = heap.get(size);
+        E minElement = heap.get(1);
         heap.set(1, lastElement);
 
         bubbleDown(1);
@@ -57,8 +61,8 @@ public class MinHeap {
         }
     }
 
-    public void addToHeap(int value) {
-        heap.add(value);
+    public void addToHeap(E element) {
+        heap.add(element);
         size++;
         bubbleUp();
     }
@@ -86,14 +90,14 @@ public class MinHeap {
         if (currentIndex >= size) {
             return;
         }
-        int parentValue = heap.get(currentIndex);
+        E parentValue = heap.get(currentIndex);
         // get children
         int rightChildIndex = getRightChildIndex(currentIndex);
         int leftChildIndex = getLeftChildIndex(currentIndex);
         // determine which child is smaller
         int smallerChildIndex;
         if (hasTwoChildren(currentIndex)) {
-            if (heap.get(leftChildIndex) < heap.get(rightChildIndex)) {
+            if (heap.get(leftChildIndex).compareTo(heap.get(rightChildIndex)) < 0) {
                 smallerChildIndex = leftChildIndex;
             } else {
                 smallerChildIndex = rightChildIndex;
@@ -105,10 +109,10 @@ public class MinHeap {
         } else {
             return;
         }
-        int smallestChildValue = heap.get(smallerChildIndex);
+        E smallestChildValue = heap.get(smallerChildIndex);
         // determine if smallest child is smaller than current parent
         // if so, swap parent and child
-        if (smallestChildValue < parentValue) {
+        if (smallestChildValue.compareTo(parentValue) < 0) {
             swapValues(smallerChildIndex, currentIndex);
         }
         // repeat process from smallestChildIndex
@@ -128,7 +132,7 @@ public class MinHeap {
     }
 
     private boolean hasSwappableParent(int currIndex, int parentIndex) {
-        return (parentIndex > 0 && heap.get(currIndex) < heap.get(parentIndex));
+        return (parentIndex > 0 && heap.get(currIndex).compareTo(heap.get(parentIndex)) < 0);
     }
 
     public void printHeap() {
@@ -138,8 +142,8 @@ public class MinHeap {
     }
 
     private void swapValues(int index1, int index2) {
-        int currValue = heap.get(index1);
-        int tempValue = heap.get(index2);
+        E currValue = heap.get(index1);
+        E tempValue = heap.get(index2);
         heap.set(index2, currValue);
         heap.set(index1, tempValue);
     }
@@ -148,7 +152,7 @@ public class MinHeap {
         return size;
     }
 
-    public int peakMin() {
+    public E peakMin() {
         return heap.get(1);
     }
 }

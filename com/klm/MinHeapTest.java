@@ -8,9 +8,9 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class MinHeapTest {
-    MinHeap minHeap;
-    MinHeap emptyMinHeap;
+class MinHeapTest<E> {
+    MinHeap<Integer> minHeap;
+    MinHeap<Integer> emptyMinHeap;
 
     @BeforeEach
     void setUp() {
@@ -28,7 +28,7 @@ class MinHeapTest {
 
     @Test
     void addToHeapMaintainsMinHeap() {
-        int topOfHeap = minHeap.peakMin();
+        Integer topOfHeap = minHeap.peakMin();
         assertEquals(0, topOfHeap);
 
         minHeap.addToHeap(100);
@@ -45,7 +45,7 @@ class MinHeapTest {
 
     @Test
     void extractMinRepeatedlyReturnsMinimum() throws IllegalStateException {
-        int min = minHeap.extractMin();
+        Integer min = minHeap.extractMin();
         assertEquals(0, min);
         min = minHeap.extractMin();
         assertEquals(1, min);
